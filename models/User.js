@@ -56,11 +56,7 @@ module.exports = (sequelize) => {
         }
       }
     }
-  }, {
-    sequelize,
-    timestamps: false,
-    modelName: 'User'
-  });
+  }, {sequelize});
 
   User.associate = (models) => {
     User.hasMany(models.Course, {

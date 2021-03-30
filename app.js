@@ -2,11 +2,11 @@
 // require/import sequelize from index.js
 const db = require('./models');
 const courseRoute = require('./routes/courses');
+const userRoute = require('./routes/users');
 
 // Load modules
 const express = require('express');
 const morgan = require('morgan');
-const userRoute = require('./routes/users');
 
 // Variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
