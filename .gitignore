@@ -36,6 +36,10 @@ build/Release
 node_modules/
 jspm_packages/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
 =======
 test
 >>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
@@ -67,6 +71,11 @@ typings/
 # SQLite database file
 *.db
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
 =======
 
 test
