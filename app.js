@@ -7,8 +7,6 @@ const courseRoute = require('./routes/courses');
 const express = require('express');
 const morgan = require('morgan');
 const userRoute = require('./routes/users');
-const db = require('./models');
-
 
 // Variable to enable global error logging
 const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
@@ -33,11 +31,10 @@ app.use(morgan('dev'));
   }
 })();
 
-
 // Setup a friendly greeting for the root route
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to the REST API project!',
+    message: 'Welcome to the REST API project!'
   });
 });
 
@@ -48,7 +45,7 @@ app.use('/api', courseRoute);
 // Send 404 if no other route matched
 app.use((req, res) => {
   res.status(404).json({
-    message: 'Route Not Found',
+    message: 'Route Not Found'
   });
 });
 
@@ -60,7 +57,7 @@ app.use((err, req, res, next) => {
 
   res.status(err.status || 500).json({
     message: err.message,
-    error: {},
+    error: {}
   });
 });
 
