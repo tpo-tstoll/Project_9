@@ -35,7 +35,14 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
+=======
+test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
 
 # TypeScript v1 declaration files
 typings/
@@ -63,5 +70,13 @@ typings/
 
 # SQLite database file
 *.db
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
 test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
+=======
+
+test
+>>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
