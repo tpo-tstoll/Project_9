@@ -62,5 +62,3 @@ typings/
 
 # SQLite database file
 *.db
-
-test
