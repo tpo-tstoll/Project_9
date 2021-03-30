@@ -11,14 +11,13 @@ app.get('/api/courses/:id', /* asyncHandler**/ (async (req, res) => {
       include: {
         model: User
       },
-      res.status(200).end()
     });
     if (course === 'undefined') {
       const err = new Error('Looks like we don\'t offer that course');
       err.status = 404;
       throw err;
     } else {
-      res.status(404).json({ course: {
+      res.status(200).json({ course: {
         id: course.id,
         title: course.title,
         description: course.description,
