@@ -5,26 +5,18 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon ./app.js",
-<<<<<<< HEAD
-    "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'"
-=======
     "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'",
     "test": "mocha test/executeTest.js"
->>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-<<<<<<< HEAD
-    "nodemon": "^1.18.3"
-=======
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "nodemon": "^1.18.3",
     "procmonrest": "^0.3.0",
     "sequelize-cli": "^6.2.0"
->>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -32,10 +24,15 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "promise.prototype.finally": "^3.1.2",
-<<<<<<< HEAD
-=======
     "sequelize": "^6.6.2",
->>>>>>> b6e5b769e0c18cbde1ef16da2a9ebe0076b2a476
     "sqlite3": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpo-tstoll/Project_9.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tpo-tstoll/Project_9/issues"
+  },
+  "homepage": "https://github.com/tpo-tstoll/Project_9#readme"
 }
