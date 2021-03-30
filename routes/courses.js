@@ -31,7 +31,7 @@ router.get('/courses/:id', asyncHandler(async (req, res) => {
       model: User
     }
   });
-  if (course === 'undefined' || 'null') {
+  if (course === null) {
     const err = new Error('Looks like we don\'t offer that course');
     res.status(400).json(err.message);
     throw err;
