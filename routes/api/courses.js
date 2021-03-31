@@ -33,10 +33,16 @@ router.get('/:id', asyncHandler(async (req, res) => {
         title: course.title,
         description: course.description,
         estimatedTime: course.estimatedTime,
-        materialsNeeded: course.materialsNeeded
-      }
+        materialsNeeded: course.materialsNeeded,
+        userId: course.userId
+      },
     });
   }
+}));
+
+router.post('/', authenticateUser, asyncHandler(async (req, res) => {
+  const course = await Course.create(req.body);
+  res.location(`/api/courses/${course.id}`).status(201).end()
 }));
 
 module.exports = router;
