@@ -1,14 +1,6 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-const  asyncHandler  = require('../../middleware/async-handler');
-=======
-const asyncHandler = require('../../middleware/async-handler');
-<<<<<<< HEAD
->>>>>>> 7ed93e0904e585218f57e8d202a45f4161bc6fa5
-const authenticateUser = require('../../middleware/auth-user');
-=======
+const { asyncHandler } = require('../../middleware/async-handler');
 const { authenticateUser } = require('../../middleware/auth-user');
->>>>>>> f4b568b3ec386f608f5fee91fb8effe47b304b4e
 const { Course, User } = require('../../models');
 
 router.get('/', asyncHandler(async (req, res) => {

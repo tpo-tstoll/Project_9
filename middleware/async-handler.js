@@ -1,4 +1,4 @@
-asyncHandler = cb => {
+exports.asyncHandler = (cb) => {
   return async (req, res, next) => {
     try {
       await cb(req, res, next);
@@ -7,5 +7,3 @@ asyncHandler = cb => {
     }
   };
 };
-
-module.exports = asyncHandler;
