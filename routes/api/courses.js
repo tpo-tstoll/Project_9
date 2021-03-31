@@ -1,5 +1,9 @@
 const router = require('express').Router();
+<<<<<<< HEAD
 const  asyncHandler  = require('../../middleware/async-handler');
+=======
+const asyncHandler = require('../../middleware/async-handler');
+>>>>>>> 7ed93e0904e585218f57e8d202a45f4161bc6fa5
 const authenticateUser = require('../../middleware/auth-user');
 const { Course, User } = require('../../models');
 
