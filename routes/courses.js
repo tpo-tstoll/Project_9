@@ -42,7 +42,10 @@ router.get('/courses/:id', asyncHandler(async (req, res) => {
         title: course.title,
         description: course.description,
         estimatedTime: course.estimatedTime,
-        materialsNeeded: course.materialsNeeded
+        materialsNeeded: course.materialsNeeded,
+        attributes: {
+          exclude: ['created_at', 'updated_at']
+        }
       }
     });
   }
