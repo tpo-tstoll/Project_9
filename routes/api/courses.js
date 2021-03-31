@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const asyncHandler = require('../../middleware/async-handler');
+const { asyncHandler }= require('../../middleware/async-handler');
+const { authenticateUser }= require('../../middleware/auth-user');
 const { Course, User } = require('../../models');
 
 
@@ -21,7 +22,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
       model: User
     }
   });
-  if (course === undefined || course === null ) {
+  if (course === undefined || course === null) {
     const err = new Error('Looks like we don\'t offer that course');
     res.status(400).json(err.message);
     throw err;
