@@ -1,8 +1,9 @@
 'use strict';
 // require/import sequelize from index.js
 const db = require('./models');
-const courseRoute = require('./routes/courses');
-const userRoute = require('./routes/users');
+const routes = require('./routes');
+// const courseRoute = require('./routes/courses');
+// const userRoute = require('./routes/users');
 
 // Load modules
 const express = require('express');
@@ -20,6 +21,8 @@ app.use(express.json());
 // Setup morgan which gives us http request logging
 app.use(morgan('dev'));
 
+app.use(routes);
+
 // Tests connection and syncs syncs the model with the database.
 (async () => {
   await db.sequelize.sync();
@@ -32,15 +35,14 @@ app.use(morgan('dev'));
 })();
 
 // Setup a friendly greeting for the root route
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to the REST API project!'
-  });
-});
+// app.get('/', (req, res) => {
+//   res.json({
+//     message: 'Welcome to the REST API project!'
+//   });
+// });
 
 // Add routes
-app.use('/api', userRoute);
-app.use('/api', courseRoute);
+// app.use('/api', courseRoute);
 
 // Send 404 if no other route matched
 app.use((req, res) => {
