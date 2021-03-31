@@ -1,24 +1,11 @@
 'use strict';
-
-const express = require('express');
-
-const router = express.Router();
-const { User } = require('../models');
+const router = require('express').Router();
+const asyncHandler = require('../../middleware/async-handler');
+const { User } = require('../../models');
 const bcrypt = require('bcryptjs');
 
-// Handler function to wrap each route
-function asyncHandler (cb) {
-  return async (req, res, next) => {
-    try {
-      await cb(req, res, next);
-    } catch (error) {
-      next(error);
-    }
-  };
-}
-
 // Post route to create a new user
-router.post('/users', asyncHandler(async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
   try {
     const user = req.body;
     user.password = bcrypt.hashSync(user.password);
