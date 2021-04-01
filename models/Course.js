@@ -24,6 +24,7 @@ module.exports = (sequelize) => {
         notNull: {
           msg: 'A description of the course is required'
         },
+<<<<<<< HEAD
         notEmpty: {
           msg: 'Please provide a description for the course'
         }
@@ -47,6 +48,13 @@ module.exports = (sequelize) => {
       validate: {
         notNull: {
           msg: 'A list of materials is required for this course'
+=======
+        estimatedTime:{
+            type: DataTypes.STRING,
+        },
+        materialsNeeded:{
+            type: DataTypes.STRING,
+>>>>>>> 8fc663ad4083b8dd0ac34f210ffcf4d8ed193135
         },
         notEmpty: {
           msg: 'Please provide a list of materials that will be required for this course'

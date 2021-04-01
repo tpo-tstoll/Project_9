@@ -46,8 +46,13 @@ router.post('/', authenticateUser, asyncHandler(async (req, res) => {
 router.put('/:id', authenticateUser, asyncHandler( async(req, res) => {
   try {
     const course = await Course.findByPk(req.params.id);
-    await course.update(req.body)
-    res.status(204).end();
+    const userId = req.currentUser.id;
+    if (userId === course.userId) {
+      await course.update(req.body)
+      res.status(204).end();
+    } else {
+      res.status(403).end();
+    }
   } catch(error) {
     console.log('ERROR: ', error.name);
     if (error.name === 'SequelizeValidationError') {
@@ -62,8 +67,13 @@ router.put('/:id', authenticateUser, asyncHandler( async(req, res) => {
 
 router.delete('/:id', authenticateUser, asyncHandler( async(req, res) => {
   const course = await Course.findByPk(req.params.id);
-  await course.destroy();
-  res.status(204).end();
+  const userId = req.currentUser.id;
+  if (userId === course.userId) {
+    await course.destroy();
+    res.status(204).end();
+  } else {
+    res.status(403).end()
+  }
 }));
 
 module.exports = router;
