@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
+const pageNotFound = require('./pageNotFound');
+const errorHandler = require('../middleware/error-handler');
 
 router.get('/', (req, res) => {
     res.json({
@@ -8,5 +10,8 @@ router.get('/', (req, res) => {
   });
 
 router.use('/api', apiRoutes);
+
+router.use(pageNotFound);
+router.use(errorHandler);
 
 module.exports = router;
