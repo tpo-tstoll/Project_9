@@ -31,27 +31,9 @@ module.exports = (sequelize) => {
         },
         estimatedTime:{
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: {
-                    msg: 'Please provide an estimate time for this course'
-                },
-                notEmpty: {
-                    msg: 'Please provide an estimate time for this course'
-                }
-            }
         },
         materialsNeeded:{
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: {
-                    msg: 'A list of materials is required for this course'
-                },
-                notEmpty: {
-                    msg: 'Please provide a list of materials that will be required for this course'
-                }
-            }
         },
 }, { sequelize });
 
