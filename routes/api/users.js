@@ -20,7 +20,7 @@ router.post('/', asyncHandler(async (req, res) => {
   try {
     const user = req.body;
     console.log(user);
-    if (user.password === undefined || user.password < 8) {
+    if (user.password === undefined || user.password.length < 8) {
       await User.create(user);
       await res.location('/').status(201).end();
     } else {
