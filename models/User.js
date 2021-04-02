@@ -51,8 +51,9 @@ module.exports = (sequelize) => {
         notNull: {
           msg: 'A password is required'
         },
-        notEmpty: {
-          msg: 'Please provide a password'
+        len: {
+          args: [8],
+          msg: 'Please provide a password that is atleast 8 characters in length'
         }
       }
     }

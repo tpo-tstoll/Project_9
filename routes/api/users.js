@@ -19,11 +19,17 @@ router.get('/', authenticateUser, asyncHandler((req, res) => {
 router.post('/', asyncHandler(async (req, res) => {
   try {
     const user = req.body;
-    user.password = bcrypt.hashSync(user.password);
-    await User.create(user);
-    await res.location('/').status(201).end();
+    console.log(user);
+    if (user.password === undefined || user.password < 8) {
+      await User.create(user);
+      await res.location('/').status(201).end();
+    } else {
+      user.password = bcrypt.hashSync(user.password);
+      await User.create(user);
+      await res.location('/').status(201).end();
+    }
     } catch (error) {
-    console.log('ERROR: ', error.name);
+      console.log('ERROR: ', error.name);
     if (error.name === 'SequelizeValidationError' || error.name === 'SequelizeUniqueConstraintError') {
       const errors = error.errors.map(err => err.message);
       res.status(400).json({ errors });
