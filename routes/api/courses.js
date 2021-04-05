@@ -5,12 +5,28 @@ const { Course, User } = require('../../models');
 
 router.get('/', asyncHandler(async (req, res) => {
   const courses = await Course.findAll({
+    include: {
+      model: User
+    },
     attributes: {
       exclude: ['createdAt', 'updatedAt']
     }
 
-  });
-  res.json(courses);
+  }),
+  const courseSearch = courses.map((courses) => ({
+    course: {
+      id: course.id,
+      title: course.title,
+      description: course.description,
+      estimatedTime: course.estimatedTime,
+      materialsNeeded: course.materialsNeeded,
+      userId: course.userId,
+      userFname: course.User.firstName,
+      userLname: course.User.lastName,
+      userEmail: course.User.emailAddress
+    },
+  }))
+  res.json({ courses, courseSearch });
 }));
 
 // GET route for a single course - commenting out function asyncHandler until middleware is setup
