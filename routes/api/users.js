@@ -1,6 +1,6 @@
 'use strict';
 const router = require('express').Router();
-const asyncHandler = require('../../middleware/async-handler');
+const { asyncHandler } = require('../../middleware/async-handler');
 const { authenticateUser } = require('../../middleware/auth-user');
 const { User } = require('../../models');
 const bcrypt = require('bcryptjs');
@@ -10,10 +10,10 @@ router.get('/', authenticateUser, asyncHandler((req, res) => {
   const user = req.currentUser;
 
   res.status(200).json({
-      name: `${user.firstName} ${user.lastName}`,
-      email: user.emailAddress 
-  })
-})) 
+    name: `${user.firstName} ${user.lastName}`,
+    email: user.emailAddress
+  });
+}));
 
 // Post route to create a new user
 router.post('/', asyncHandler(async (req, res) => {
