@@ -40,7 +40,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
   }
 }));
 
-router.post('/', authenticateUser, asyncHandler(async (req, res) => {
+router.post('/', authenticateUser, asyncHandler(async (req, res, next) => {
   try {
     const course = await Course.create(req.body);
   res.location(`/api/courses/${course.id}`).status(201).end() 
@@ -50,13 +50,13 @@ router.post('/', authenticateUser, asyncHandler(async (req, res) => {
     const errors = error.errors.map(err => err.message);
     res.status(400).json({ errors });
   } else {
-    throw error;
+    next(error);
   }
 
 }
 }));
 
-router.put('/:id', authenticateUser, asyncHandler( async(req, res) => {
+router.put('/:id', authenticateUser, asyncHandler( async(req, res, next) => {
   try {
     const course = await Course.findByPk(req.params.id);
     const userId = req.currentUser.id;
@@ -72,7 +72,7 @@ router.put('/:id', authenticateUser, asyncHandler( async(req, res) => {
       const errors = error.errors.map(err => err.message);
       res.status(400).json({ errors });
     } else {
-      throw error;
+      next(error);
     }
   }
 

@@ -1,10 +1,9 @@
 const router = require('express').Router();
 
-router.use((req, res, next) => {
+router.use((req, res) => {
   res.status(404).json({
     message: 'Route Not Found'
   });
-  next();
 });
 
 module.exports = router;
