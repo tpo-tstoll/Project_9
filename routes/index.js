@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
-const pageNotFound = require('./pageNotFound');
+const pageNotFound = require('../middleware/pageNotFound');
 const errorHandler = require('../middleware/error-handler');
 
 router.get('/', (req, res) => {
