@@ -3,7 +3,6 @@ const router = require('express').Router();
 const { asyncHandler } = require('../../middleware/async-handler');
 const { authenticateUser } = require('../../middleware/auth-user');
 const { User } = require('../../models');
-const bcrypt = require('bcryptjs');
 
 // Get User
 router.get('/', authenticateUser, asyncHandler((req, res) => {
@@ -19,9 +18,6 @@ router.get('/', authenticateUser, asyncHandler((req, res) => {
 router.post('/', asyncHandler(async (req, res, next) => {
   try {
     const user = req.body;
-    if (user.password && user.password.length >= 8) {
-      user.password = bcrypt.hashSync(user.password);
-    }
     await User.create(user);
     await res.location('/').status(201).end();
 
